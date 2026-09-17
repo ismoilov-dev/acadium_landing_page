@@ -115,17 +115,18 @@
     });
   });
 
-  /* ---------- 7. Forma submit (hozircha console.log) ---------- */
+  /* ---------- 7. Forma submit (FormSubmit orqali emailga yuboriladi) ---------- */
   const form = document.getElementById("leadForm");
   const msg = document.getElementById("formMsg");
+  const submitBtn = form.querySelector('button[type="submit"]');
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form).entries());
 
     // Oddiy validatsiya
     let valid = true;
-    form.querySelectorAll("input").forEach((input) => {
+    form.querySelectorAll("input:not([type=hidden]):not([name=_honey])").forEach((input) => {
       const value = input.value.trim();
       const bad = input.name === "phone" ? value.replace(/\D/g, "").length < 9 : value.length < 2;
       input.classList.toggle("is-invalid", bad);
@@ -133,15 +134,36 @@
     });
 
     if (!valid) {
-      msg.textContent = "Barcha maydonlarni to‘ldiring: telefon raqam kamida 9 ta raqamdan iborat bo‘lsin.";
+      msg.textContent = "Barcha maydonlarni to\u2018ldiring: telefon raqam kamida 9 ta raqamdan iborat bo\u2018lsin.";
       return;
     }
 
-    // TODO: backend ulanganda shu yerda fetch() bilan yuboriladi
-    console.log("Acadium — yangi so‘rov:", data);
+    const btnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Yuborilmoqda\u2026";
+    msg.textContent = "";
 
-    msg.textContent = `Rahmat, ${data.name}! So‘rovingiz qabul qilindi — tez orada bog‘lanamiz.`;
-    form.reset();
+    try {
+      // FormSubmit AJAX endpoint — forma action\u2019idagi email manzilga yuboradi
+      const endpoint = form.action.replace("formsubmit.co/", "formsubmit.co/ajax/");
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json().catch(() => ({}));
+
+      if (!res.ok || String(result.success) !== "true") throw new Error(result.message || "Yuborishda xatolik");
+
+      msg.textContent = `Rahmat, ${data.name}! So\u2018rovingiz qabul qilindi \u2014 tez orada bog\u2018lanamiz.`;
+      form.reset();
+    } catch (err) {
+      console.error("Acadium \u2014 forma yuborilmadi:", err);
+      msg.textContent = "Kechirasiz, so\u2018rov yuborilmadi. Iltimos, qayta urinib ko\u2018ring yoki Telegram orqali yozing.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = btnText;
+    }
   });
 
   form.addEventListener("input", (e) => e.target.classList.remove("is-invalid"));
