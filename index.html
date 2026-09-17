@@ -35,18 +35,37 @@
         <a href="#contact" class="btn btn-primary nav-cta-mobile" data-i18n="nav.cta">Bepul boshlash</a>
       </nav>
 
-      <!-- Til tanlash: UZ / RU / EN -->
-      <div class="lang-select">
-        <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>
-          <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/>
-        </svg>
-        <select id="langSelect" data-i18n-aria-label="nav.ariaLang" aria-label="Til tanlash">
-          <option value="uz">O‘zbekcha</option>
-          <option value="ru">Русский</option>
-          <option value="en">English</option>
-        </select>
-        <svg class="lang-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      <!-- Til tanlash: custom select (UZ / RU / EN) -->
+      <div class="lang" id="langSelect">
+        <button type="button" class="lang-trigger" id="langTrigger"
+                aria-haspopup="listbox" aria-expanded="false" aria-controls="langList"
+                data-i18n-aria-label="nav.ariaLang" aria-label="Til tanlash">
+          <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>
+            <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/>
+          </svg>
+          <span class="lang-code" id="langCode">UZ</span>
+          <span class="lang-name" id="langName">O‘zbekcha</span>
+          <svg class="lang-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+
+        <ul class="lang-list" id="langList" role="listbox" data-i18n-aria-label="nav.ariaLang" aria-label="Til tanlash">
+          <li class="lang-option is-active" role="option" aria-selected="true" tabindex="-1" data-lang="uz" data-code="UZ">
+            <span class="lang-badge">UZ</span>
+            <span class="lang-label">O‘zbekcha</span>
+            <svg class="lang-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
+          </li>
+          <li class="lang-option" role="option" aria-selected="false" tabindex="-1" data-lang="ru" data-code="RU">
+            <span class="lang-badge">RU</span>
+            <span class="lang-label">Русский</span>
+            <svg class="lang-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
+          </li>
+          <li class="lang-option" role="option" aria-selected="false" tabindex="-1" data-lang="en" data-code="EN">
+            <span class="lang-badge">EN</span>
+            <span class="lang-label">English</span>
+            <svg class="lang-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
+          </li>
+        </ul>
       </div>
 
       <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Bepul boshlash</a>

@@ -465,9 +465,18 @@
       el.setAttribute("content", t(el.dataset.i18nContent));
     });
 
-    // Til tanlagich holati
-    const select = document.getElementById("langSelect");
-    if (select && select.value !== current) select.value = current;
+    // Custom select holati: tugmadagi matn va ro'yxatdagi belgilangan variant
+    document.querySelectorAll(".lang-option").forEach((opt) => {
+      const active = opt.dataset.lang === current;
+      opt.classList.toggle("is-active", active);
+      opt.setAttribute("aria-selected", String(active));
+      if (active) {
+        const code = document.getElementById("langCode");
+        const name = document.getElementById("langName");
+        if (code) code.textContent = opt.dataset.code || current.toUpperCase();
+        if (name) name.textContent = opt.querySelector(".lang-label").textContent;
+      }
+    });
 
     // Formaning email sarlavhasi va til belgisi
     const subject = document.querySelector('input[name="_subject"]');
@@ -485,12 +494,78 @@
     apply(lang);
   }
 
-  /* ---------- Tugmalarni ulash ---------- */
-  function init() {
-    const select = document.getElementById("langSelect");
-    if (select) {
-      select.addEventListener("change", () => setLang(select.value));
+  /* ---------- Custom select (dropdown) ---------- */
+  function initDropdown() {
+    const root = document.getElementById("langSelect");
+    if (!root) return;
+
+    const trigger = document.getElementById("langTrigger");
+    const list = document.getElementById("langList");
+    const options = Array.from(list.querySelectorAll(".lang-option"));
+
+    const isOpen = () => root.classList.contains("is-open");
+
+    function open() {
+      root.classList.add("is-open");
+      trigger.setAttribute("aria-expanded", "true");
+      const active = options.find((o) => o.dataset.lang === current) || options[0];
+      active.focus();
     }
+
+    function close(focusTrigger) {
+      root.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+      if (focusTrigger) trigger.focus();
+    }
+
+    function choose(opt) {
+      setLang(opt.dataset.lang);
+      close(true);
+    }
+
+    // Faqat fokusdagi variantni almashtirish (hali tanlanmaydi)
+    function move(from, step) {
+      const i = options.indexOf(from);
+      options[(i + step + options.length) % options.length].focus();
+    }
+
+    trigger.addEventListener("click", () => (isOpen() ? close(false) : open()));
+
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    });
+
+    options.forEach((opt) => {
+      opt.addEventListener("click", () => choose(opt));
+      opt.addEventListener("keydown", (e) => {
+        switch (e.key) {
+          case "ArrowDown": e.preventDefault(); move(opt, 1); break;
+          case "ArrowUp":   e.preventDefault(); move(opt, -1); break;
+          case "Home":      e.preventDefault(); options[0].focus(); break;
+          case "End":       e.preventDefault(); options[options.length - 1].focus(); break;
+          case "Enter":
+          case " ":         e.preventDefault(); choose(opt); break;
+          case "Escape":    e.preventDefault(); close(true); break;
+          case "Tab":       close(false); break;
+        }
+      });
+    });
+
+    // Tashqariga bosilsa yoki fokus chiqib ketsa — yopamiz
+    document.addEventListener("click", (e) => {
+      if (isOpen() && !root.contains(e.target)) close(false);
+    });
+    document.addEventListener("focusin", (e) => {
+      if (isOpen() && !root.contains(e.target)) close(false);
+    });
+    window.addEventListener("scroll", () => { if (isOpen()) close(false); }, { passive: true });
+  }
+
+  function init() {
+    initDropdown();
     apply(detectLang());
   }
 
