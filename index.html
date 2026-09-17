@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acadium — o‘quv markazlari uchun yagona tizim</title>
+  <meta name="description" content="Acadium: CRM, davomat, homework, o‘quvchi progressi va ota-ona monitoringi bitta platformada." />
+
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVBAR ============ -->
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="#top" class="logo" aria-label="Acadium bosh sahifa">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 4 4 28h5.5l2.4-5.2h8.2L22.5 28H28L16 4Zm-2.2 14.6L16 13.7l2.2 4.9h-4.4Z" fill="currentColor"/></svg>
+        </span>
+        Acadium
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Asosiy navigatsiya">
+        <ul>
+          <li><a href="#features">Xususiyatlar</a></li>
+          <li><a href="#how">Qanday ishlaydi</a></li>
+          <li><a href="#pricing">Narxlar</a></li>
+          <li><a href="#contact">Aloqa</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary nav-cta-mobile">Bepul boshlash</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary nav-cta">Bepul boshlash</a>
+
+      <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-tag load-in" style="--d:0ms">The operating system for modern learning centers</p>
+          <h1 class="load-in" style="--d:80ms">O‘quv markazingiz uchun yagona tizim</h1>
+          <p class="hero-lead load-in" style="--d:160ms">
+            Davomat, homework, baholar, to‘lovlar va ota-ona bilan aloqa — Telegram, Excel va qog‘oz o‘rniga bitta platformada. Har bir o‘quvchining holatini real vaqtda ko‘ring.
+          </p>
+          <div class="hero-actions load-in" style="--d:240ms">
+            <a href="#contact" class="btn btn-primary btn-lg">Demo so‘rash</a>
+            <a href="#features" class="btn btn-ghost btn-lg">Ko‘proq bilish</a>
+          </div>
+          <ul class="hero-points load-in" style="--d:320ms">
+            <li>Admin paneli</li>
+            <li>O‘quvchi ilovasi</li>
+            <li>Ota-ona ilovasi</li>
+          </ul>
+        </div>
+
+        <!-- CSS bilan chizilgan mockup: dashboard + telefon -->
+        <div class="hero-visual load-in" style="--d:200ms" aria-hidden="true">
+          <div class="dash">
+            <div class="dash-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dash-title">Bugungi davomat</span>
+            </div>
+            <div class="dash-body">
+              <div class="dash-kpis">
+                <div class="kpi"><small>Kelgan</small><strong>184</strong></div>
+                <div class="kpi"><small>Kechikkan</small><strong>9</strong></div>
+                <div class="kpi"><small>Kelmagan</small><strong>6</strong></div>
+              </div>
+              <div class="dash-chart">
+                <span style="--h:45%"></span><span style="--h:62%"></span><span style="--h:55%"></span>
+                <span style="--h:78%"></span><span style="--h:70%"></span><span style="--h:88%"></span>
+                <span style="--h:92%"></span>
+              </div>
+              <div class="dash-rows">
+                <div class="row"><span class="av">IE</span><span class="nm">Ingliz tili, B1</span><span class="pill ok">14/14</span></div>
+                <div class="row"><span class="av">MT</span><span class="nm">Matematika, 9-sinf</span><span class="pill warn">11/12</span></div>
+                <div class="row"><span class="av">PY</span><span class="nm">Python asoslari</span><span class="pill ok">16/16</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <p class="phone-head">Ota-ona</p>
+              <p class="phone-child">Aziz, 9-sinf</p>
+              <div class="notif n1">
+                <span class="n-ic ic-green"></span>
+                <div><b>Markazga keldi</b><small>14:02, Chilonzor filiali</small></div>
+              </div>
+              <div class="notif n2">
+                <span class="n-ic ic-blue"></span>
+                <div><b>Yangi homework</b><small>Matematika, ertaga 18:00 gacha</small></div>
+              </div>
+              <div class="notif n3">
+                <span class="n-ic ic-violet"></span>
+                <div><b>Baho qo‘yildi: 5</b><small>Ingliz tili, nazorat ishi</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MUAMMO ============ -->
+    <section class="section problem" id="problem">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Bugungi muammo</h2>
+          <p>Ma’lumotlar to‘rt xil joyda yotadi — va markaz oddiy savolga javob bera olmaydi: o‘quvchi hozir qayerda va o‘qishi qanday ketyapti?</p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span class="p-icon">💬</span>
+            <h3>Telegram guruhlar</h3>
+            <p>Homework va e’lonlar chat ichida yo‘qolib ketadi. Kim ko‘rdi, kim topshirdi — noma’lum.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span class="p-icon">📊</span>
+            <h3>Excel jadvallar</h3>
+            <p>To‘lovlar va guruhlar qo‘lda yangilanadi. Har bir admin o‘z faylini yuritadi.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span class="p-icon">📋</span>
+            <h3>Qog‘oz davomat</h3>
+            <p>Jurnal sinfda qoladi. Statistika yig‘ish uchun soatlab qayta yozish kerak.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span class="p-icon">📞</span>
+            <h3>Ota-onaning qo‘ng‘iroqlari</h3>
+            <p>“Farzandim bugun keldimi?” degan savolga javob berish uchun admin har safar qidiradi.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ XUSUSIYATLAR ============ -->
+    <section class="section features" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Markaz uchun kerak bo‘lgan hamma narsa</h2>
+          <p>Olti modul bir-biri bilan bog‘langan: davomat belgilanishi bilan ota-ona xabar oladi, homework baholanishi bilan o‘quvchi XP oladi.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature reveal">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            </div>
+            <h3>Avtomatik davomat</h3>
+            <p>Geofence orqali o‘quvchi markaz hududiga kirganda davomat o‘zi belgilanadi. O‘qituvchi faqat tekshiradi.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+            </div>
+            <h3>Ota-ona monitoringi</h3>
+            <p>Farzand darsga keldi yoki kelmadi, homework berildi, baho qo‘yildi — ota-ona darhol bildirishnoma oladi.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+            </div>
+            <h3>Homework tizimi</h3>
+            <p>Topshiriq berish, muddat qo‘yish, ilovadan topshirish va baholash — bitta oqimda.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+            </div>
+            <h3>Arena va XP</h3>
+            <p>O‘quvchilar davomat va topshiriqlar uchun XP yig‘adi, guruh reytingida o‘z o‘rnini ko‘radi.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 13h3M8 17h6"/></svg>
+            </div>
+            <h3>O‘qituvchi paneli</h3>
+            <p>Guruhlar, dars jadvali va davomat bitta ekranda. Dars tugashi bilan hamma narsa saqlangan.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="f-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
+            </div>
+            <h3>Analitika va hisobotlar</h3>
+            <p>Davomat, o‘zlashtirish, to‘lovlar va o‘qituvchilar samaradorligi bo‘yicha to‘liq statistika.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QANDAY ISHLAYDI ============ -->
+    <section class="section how" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Qanday ishlaydi</h2>
+          <p>Markazdan ota-onagacha — ma’lumot bir marta kiritiladi va hamma joyga o‘zi yetib boradi.</p>
+        </div>
+
+        <ol class="timeline">
+          <li class="step reveal">
+            <span class="step-num">1</span>
+            <h3>Markaz o‘quvchi qo‘shadi</h3>
+            <p>Admin o‘quvchini guruhga biriktiradi, ota-onaning telefon raqamini kiritadi.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">2</span>
+            <h3>O‘qituvchi darsni o‘tkazadi</h3>
+            <p>Jadval bo‘yicha dars boshlanadi, o‘qituvchi panelda guruhni ochadi.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">3</span>
+            <h3>Davomat va homework qayd etiladi</h3>
+            <p>Geofence davomatni belgilaydi, o‘qituvchi topshiriq va baholarni qo‘shadi.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">4</span>
+            <h3>Ota-ona real vaqtda ko‘radi</h3>
+            <p>Ilovaga bildirishnoma keladi: keldi, topshiriq oldi, baho oldi.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ ROLLAR (TABS) ============ -->
+    <section class="section roles" id="roles">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Har bir rol uchun o‘z ekrani</h2>
+          <p>Bitta ma’lumotlar bazasi, uch xil ko‘rinish.</p>
+        </div>
+
+        <div class="tabs reveal">
+          <div class="tab-list" role="tablist" aria-label="Foydalanuvchi rollari">
+            <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-admin" id="tab-admin">Markaz va o‘qituvchi</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-student" id="tab-student" tabindex="-1">O‘quvchi</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-parent" id="tab-parent" tabindex="-1">Ota-ona</button>
+          </div>
+
+          <div class="tab-panel is-active" role="tabpanel" id="panel-admin" aria-labelledby="tab-admin">
+            <div class="panel-text">
+              <h3>Veb-panel: markazni to‘liq boshqarish</h3>
+              <p>Admin va o‘qituvchilar o‘quvchilar, guruhlar, jadval, davomat, homework va to‘lovlarni bitta joyda yuritadi.</p>
+              <ul class="checks">
+                <li>O‘quvchi va guruhlar ro‘yxati</li>
+                <li>Dars jadvali va xonalar</li>
+                <li>Davomat va homework nazorati</li>
+                <li>To‘lovlar va qarzdorlik</li>
+              </ul>
+            </div>
+            <div class="panel-visual pv-admin" aria-hidden="true">
+              <div class="pv-line w80"></div><div class="pv-line w60"></div>
+              <div class="pv-table">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-student" aria-labelledby="tab-student" hidden>
+            <div class="panel-text">
+              <h3>Mobil ilova: o‘qishni o‘yinga aylantirish</h3>
+              <p>O‘quvchi o‘z jadvali, topshiriqlari va baholarini ko‘radi, Arena’da XP yig‘ib reytingda ko‘tariladi.</p>
+              <ul class="checks">
+                <li>Bugungi darslar va muddatlar</li>
+                <li>Homework’ni ilovadan topshirish</li>
+                <li>Baholar va progress grafigi</li>
+                <li>Arena reytingi va XP</li>
+              </ul>
+            </div>
+            <div class="panel-visual pv-student" aria-hidden="true">
+              <div class="xp-ring"><span>1 240<small>XP</small></span></div>
+              <div class="xp-list">
+                <div><b>1</b> Madina <em>1 480</em></div>
+                <div class="me"><b>2</b> Siz <em>1 240</em></div>
+                <div><b>3</b> Jasur <em>1 115</em></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" role="tabpanel" id="panel-parent" aria-labelledby="tab-parent" hidden>
+            <div class="panel-text">
+              <h3>Mobil ilova: xotirjamlik</h3>
+              <p>Ota-ona markazga qo‘ng‘iroq qilmasdan farzandining davomati, topshiriqlari va natijalarini kuzatadi.</p>
+              <ul class="checks">
+                <li>Keldi va ketdi bildirishnomalari</li>
+                <li>Berilgan va topshirilgan homework</li>
+                <li>Baholar va oylik progress</li>
+                <li>To‘lov eslatmalari</li>
+              </ul>
+            </div>
+            <div class="panel-visual pv-parent" aria-hidden="true">
+              <div class="month">
+                <span class="a"></span><span class="a"></span><span class="a"></span><span class="l"></span>
+                <span class="a"></span><span class="a"></span><span class="m"></span><span class="a"></span>
+                <span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span>
+                <span class="l"></span><span class="a"></span><span class="a"></span><span class="a"></span>
+              </div>
+              <p class="month-cap">Sentyabr davomati: 88%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATISTIKA ============ -->
+    <!-- Raqamlar hozircha placeholder — data-target qiymatlarini almashtiring -->
+    <section class="stats" id="pricing">
+      <div class="container stats-grid">
+        <div class="stat reveal"><strong data-target="500" data-suffix="+">0</strong><span>o‘quvchi</span></div>
+        <div class="stat reveal"><strong data-target="50" data-suffix="+">0</strong><span>o‘qituvchi</span></div>
+        <div class="stat reveal"><strong data-target="12" data-suffix="">0</strong><span>o‘quv markazi</span></div>
+        <div class="stat reveal"><strong data-target="98" data-suffix="%">0</strong><span>davomat avtomatik belgilanadi</span></div>
+      </div>
+      <p class="container stats-note reveal">Narxlar markaz hajmiga qarab belgilanadi — demo davomida hisoblab beramiz.</p>
+    </section>
+
+    <!-- ============ CTA / FORMA ============ -->
+    <section class="section cta" id="contact">
+      <div class="container cta-box reveal">
+        <div class="cta-copy">
+          <h2>Markazingizni raqamlashtiring</h2>
+          <p>Ma’lumotlaringizni qoldiring — 24 soat ichida bog‘lanib, platformani markazingiz misolida ko‘rsatamiz.</p>
+        </div>
+
+        <form class="cta-form" id="leadForm" novalidate>
+          <label>
+            <span>Ismingiz</span>
+            <input type="text" name="name" placeholder="Masalan, Dilshod" required />
+          </label>
+          <label>
+            <span>Telefon raqam</span>
+            <input type="tel" name="phone" placeholder="+998 90 123 45 67" required />
+          </label>
+          <label>
+            <span>Markaz nomi</span>
+            <input type="text" name="center" placeholder="Masalan, Bilim Plus" required />
+          </label>
+          <button type="submit" class="btn btn-light btn-lg">Demo so‘rash</button>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#top" class="logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><path d="M16 4 4 28h5.5l2.4-5.2h8.2L22.5 28H28L16 4Zm-2.2 14.6L16 13.7l2.2 4.9h-4.4Z" fill="currentColor"/></svg>
+          </span>
+          Acadium
+        </a>
+        <p class="footer-desc">O‘quv markazlari uchun CRM, davomat, homework va ota-ona monitoringi — bitta platformada.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Huquqiy havolalar">
+        <a href="#">Maxfiylik siyosati</a>
+        <a href="#">Foydalanish shartlari</a>
+        <a href="#contact">Aloqa</a>
+      </nav>
+
+      <div class="socials">
+        <a href="#" aria-label="Telegram">
+          <svg viewBox="0 0 24 24"><path d="m21.5 4.5-3 15c-.2 1-.9 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.7 13.5 2.2 12c-1-.3-1-1 .2-1.5l17.7-6.8c.8-.3 1.6.2 1.4 1Z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" class="stroke"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3Zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4Z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> Acadium. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
