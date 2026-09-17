@@ -109,12 +109,44 @@ img, svg { max-width: 100%; display: block; }
 }
 .site-header.is-scrolled { border-bottom-color: var(--line); box-shadow: 0 4px 20px -12px rgba(15, 23, 42, .15); }
 
-.nav-wrap { height: 100%; display: flex; align-items: center; gap: 32px; }
+.nav-wrap { height: 100%; display: flex; align-items: center; gap: 20px; }
 .main-nav { margin-left: auto; }
 .main-nav ul { display: flex; gap: 28px; }
 .main-nav a:not(.btn) { color: var(--ink-soft); font-weight: 500; font-size: .95rem; transition: color .2s ease; }
 .main-nav a:not(.btn):hover { color: var(--ink); }
 .nav-cta-mobile { display: none; }
+
+/* Til tanlagich (select: UZ / RU / EN) */
+.lang-select {
+  position: relative;
+  display: inline-flex; align-items: center;
+  flex: 0 0 auto;
+}
+.lang-select select {
+  appearance: none; -webkit-appearance: none;
+  padding: 8px 30px 8px 32px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font: 600 .88rem/1 var(--font);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.lang-select select:hover { border-color: #c9cfdc; }
+.lang-select select:focus-visible { outline: 2px solid var(--secondary-color); outline-offset: 2px; }
+.lang-select option { color: var(--ink); background: #fff; }
+
+/* Ikonkalar selectning ustida turadi, bosilishga xalaqit bermaydi */
+.lang-globe, .lang-chevron {
+  position: absolute; pointer-events: none;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+  color: var(--ink-mute);
+}
+.lang-globe { left: 9px; width: 16px; height: 16px; }
+.lang-chevron { right: 9px; width: 14px; height: 14px; }
+.lang-select:hover .lang-globe, .lang-select:hover .lang-chevron { color: var(--ink-soft); }
 
 .burger { display: none; width: 40px; height: 40px; margin-left: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; cursor: pointer; padding: 0; position: relative; }
 .burger span { position: absolute; left: 11px; width: 16px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
@@ -421,7 +453,8 @@ img, svg { max-width: 100%; display: block; }
 
 @media (max-width: 860px) {
   .nav-cta { display: none; }
-  .burger { display: block; }
+  .burger { display: block; margin-left: 0; }
+  .lang-select { margin-left: auto; }
 
   .main-nav {
     position: fixed; top: var(--header-h); left: 0; right: 0;
@@ -444,6 +477,8 @@ img, svg { max-width: 100%; display: block; }
 
 @media (max-width: 600px) {
   .section { padding: 80px 0; }
+  .lang-select select { padding: 7px 26px 7px 28px; font-size: .82rem; }
+  .lang-globe { left: 8px; width: 14px; height: 14px; }
   .hero { padding: 56px 0 72px; }
   .hero-actions .btn { flex: 1; }
   .hero-visual { min-height: 420px; }

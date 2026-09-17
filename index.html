@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acadium — o‘quv markazlari uchun yagona tizim</title>
-  <meta name="description" content="Acadium: CRM, davomat, homework, o‘quvchi progressi va ota-ona monitoringi bitta platformada." />
+  <title data-i18n="meta.title">Acadium — o‘quv markazlari uchun yagona tizim</title>
+  <meta name="description" data-i18n-content="meta.description" content="Acadium: CRM, davomat, homework, o‘quvchi progressi va ota-ona monitoringi bitta platformada." />
 
   <!-- Google Fonts: Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,26 +18,40 @@
   <!-- ============ HEADER / NAVBAR ============ -->
   <header class="site-header" id="top">
     <div class="container nav-wrap">
-      <a href="#top" class="logo" aria-label="Acadium bosh sahifa">
+      <a href="#top" class="logo" data-i18n-aria-label="nav.ariaHome" aria-label="Acadium bosh sahifa">
         <span class="logo-mark" aria-hidden="true">
           <svg viewBox="0 0 32 32"><path d="M16 4 4 28h5.5l2.4-5.2h8.2L22.5 28H28L16 4Zm-2.2 14.6L16 13.7l2.2 4.9h-4.4Z" fill="currentColor"/></svg>
         </span>
         Acadium
       </a>
 
-      <nav class="main-nav" id="mainNav" aria-label="Asosiy navigatsiya">
+      <nav class="main-nav" id="mainNav" data-i18n-aria-label="nav.ariaNav" aria-label="Asosiy navigatsiya">
         <ul>
-          <li><a href="#features">Xususiyatlar</a></li>
-          <li><a href="#how">Qanday ishlaydi</a></li>
-          <li><a href="#pricing">Narxlar</a></li>
-          <li><a href="#contact">Aloqa</a></li>
+          <li><a href="#features" data-i18n="nav.features">Xususiyatlar</a></li>
+          <li><a href="#how" data-i18n="nav.how">Qanday ishlaydi</a></li>
+          <li><a href="#pricing" data-i18n="nav.pricing">Narxlar</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Aloqa</a></li>
         </ul>
-        <a href="#contact" class="btn btn-primary nav-cta-mobile">Bepul boshlash</a>
+        <a href="#contact" class="btn btn-primary nav-cta-mobile" data-i18n="nav.cta">Bepul boshlash</a>
       </nav>
 
-      <a href="#contact" class="btn btn-primary nav-cta">Bepul boshlash</a>
+      <!-- Til tanlash: UZ / RU / EN -->
+      <div class="lang-select">
+        <svg class="lang-globe" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>
+          <path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/>
+        </svg>
+        <select id="langSelect" data-i18n-aria-label="nav.ariaLang" aria-label="Til tanlash">
+          <option value="uz">O‘zbekcha</option>
+          <option value="ru">Русский</option>
+          <option value="en">English</option>
+        </select>
+        <svg class="lang-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
 
-      <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="mainNav">
+      <a href="#contact" class="btn btn-primary nav-cta" data-i18n="nav.cta">Bepul boshlash</a>
+
+      <button class="burger" id="burger" data-i18n-aria-label="nav.ariaMenuOpen" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="mainNav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -49,19 +63,19 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="hero-tag load-in" style="--d:0ms">The operating system for modern learning centers</p>
-          <h1 class="load-in" style="--d:80ms">O‘quv markazingiz uchun yagona tizim</h1>
-          <p class="hero-lead load-in" style="--d:160ms">
+          <p class="hero-tag load-in" style="--d:0ms" data-i18n="hero.tag">Zamonaviy o‘quv markazlari uchun operatsion tizim</p>
+          <h1 class="load-in" style="--d:80ms" data-i18n="hero.title">O‘quv markazingiz uchun yagona tizim</h1>
+          <p class="hero-lead load-in" style="--d:160ms" data-i18n="hero.lead">
             Davomat, homework, baholar, to‘lovlar va ota-ona bilan aloqa — Telegram, Excel va qog‘oz o‘rniga bitta platformada. Har bir o‘quvchining holatini real vaqtda ko‘ring.
           </p>
           <div class="hero-actions load-in" style="--d:240ms">
-            <a href="#contact" class="btn btn-primary btn-lg">Demo so‘rash</a>
-            <a href="#features" class="btn btn-ghost btn-lg">Ko‘proq bilish</a>
+            <a href="#contact" class="btn btn-primary btn-lg" data-i18n="hero.demo">Demo so‘rash</a>
+            <a href="#features" class="btn btn-ghost btn-lg" data-i18n="hero.more">Ko‘proq bilish</a>
           </div>
           <ul class="hero-points load-in" style="--d:320ms">
-            <li>Admin paneli</li>
-            <li>O‘quvchi ilovasi</li>
-            <li>Ota-ona ilovasi</li>
+            <li data-i18n="hero.p1">Admin paneli</li>
+            <li data-i18n="hero.p2">O‘quvchi ilovasi</li>
+            <li data-i18n="hero.p3">Ota-ona ilovasi</li>
           </ul>
         </div>
 
@@ -70,13 +84,13 @@
           <div class="dash">
             <div class="dash-bar">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="dash-title">Bugungi davomat</span>
+              <span class="dash-title" data-i18n="dash.title">Bugungi davomat</span>
             </div>
             <div class="dash-body">
               <div class="dash-kpis">
-                <div class="kpi"><small>Kelgan</small><strong>184</strong></div>
-                <div class="kpi"><small>Kechikkan</small><strong>9</strong></div>
-                <div class="kpi"><small>Kelmagan</small><strong>6</strong></div>
+                <div class="kpi"><small data-i18n="dash.present">Kelgan</small><strong>184</strong></div>
+                <div class="kpi"><small data-i18n="dash.late">Kechikkan</small><strong>9</strong></div>
+                <div class="kpi"><small data-i18n="dash.absent">Kelmagan</small><strong>6</strong></div>
               </div>
               <div class="dash-chart">
                 <span style="--h:45%"></span><span style="--h:62%"></span><span style="--h:55%"></span>
@@ -84,9 +98,9 @@
                 <span style="--h:92%"></span>
               </div>
               <div class="dash-rows">
-                <div class="row"><span class="av">IE</span><span class="nm">Ingliz tili, B1</span><span class="pill ok">14/14</span></div>
-                <div class="row"><span class="av">MT</span><span class="nm">Matematika, 9-sinf</span><span class="pill warn">11/12</span></div>
-                <div class="row"><span class="av">PY</span><span class="nm">Python asoslari</span><span class="pill ok">16/16</span></div>
+                <div class="row"><span class="av">IE</span><span class="nm" data-i18n="dash.row1">Ingliz tili, B1</span><span class="pill ok">14/14</span></div>
+                <div class="row"><span class="av">MT</span><span class="nm" data-i18n="dash.row2">Matematika, 9-sinf</span><span class="pill warn">11/12</span></div>
+                <div class="row"><span class="av">PY</span><span class="nm" data-i18n="dash.row3">Python asoslari</span><span class="pill ok">16/16</span></div>
               </div>
             </div>
           </div>
@@ -94,19 +108,19 @@
           <div class="phone">
             <div class="phone-notch"></div>
             <div class="phone-screen">
-              <p class="phone-head">Ota-ona</p>
-              <p class="phone-child">Aziz, 9-sinf</p>
+              <p class="phone-head" data-i18n="phone.head">Ota-ona</p>
+              <p class="phone-child" data-i18n="phone.child">Aziz, 9-sinf</p>
               <div class="notif n1">
                 <span class="n-ic ic-green"></span>
-                <div><b>Markazga keldi</b><small>14:02, Chilonzor filiali</small></div>
+                <div><b data-i18n="phone.n1t">Markazga keldi</b><small data-i18n="phone.n1s">14:02, Chilonzor filiali</small></div>
               </div>
               <div class="notif n2">
                 <span class="n-ic ic-blue"></span>
-                <div><b>Yangi homework</b><small>Matematika, ertaga 18:00 gacha</small></div>
+                <div><b data-i18n="phone.n2t">Yangi homework</b><small data-i18n="phone.n2s">Matematika, ertaga 18:00 gacha</small></div>
               </div>
               <div class="notif n3">
                 <span class="n-ic ic-violet"></span>
-                <div><b>Baho qo‘yildi: 5</b><small>Ingliz tili, nazorat ishi</small></div>
+                <div><b data-i18n="phone.n3t">Baho qo‘yildi: 5</b><small data-i18n="phone.n3s">Ingliz tili, nazorat ishi</small></div>
               </div>
             </div>
           </div>
@@ -118,30 +132,30 @@
     <section class="section problem" id="problem">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Bugungi muammo</h2>
-          <p>Ma’lumotlar to‘rt xil joyda yotadi — va markaz oddiy savolga javob bera olmaydi: o‘quvchi hozir qayerda va o‘qishi qanday ketyapti?</p>
+          <h2 data-i18n="problem.h2">Bugungi muammo</h2>
+          <p data-i18n="problem.lead">Ma’lumotlar to‘rt xil joyda yotadi — va markaz oddiy savolga javob bera olmaydi: o‘quvchi hozir qayerda va o‘qishi qanday ketyapti?</p>
         </div>
 
         <div class="problem-grid">
           <article class="problem-card reveal">
             <span class="p-icon">💬</span>
-            <h3>Telegram guruhlar</h3>
-            <p>Homework va e’lonlar chat ichida yo‘qolib ketadi. Kim ko‘rdi, kim topshirdi — noma’lum.</p>
+            <h3 data-i18n="problem.c1t">Telegram guruhlar</h3>
+            <p data-i18n="problem.c1p">Homework va e’lonlar chat ichida yo‘qolib ketadi. Kim ko‘rdi, kim topshirdi — noma’lum.</p>
           </article>
           <article class="problem-card reveal">
             <span class="p-icon">📊</span>
-            <h3>Excel jadvallar</h3>
-            <p>To‘lovlar va guruhlar qo‘lda yangilanadi. Har bir admin o‘z faylini yuritadi.</p>
+            <h3 data-i18n="problem.c2t">Excel jadvallar</h3>
+            <p data-i18n="problem.c2p">To‘lovlar va guruhlar qo‘lda yangilanadi. Har bir admin o‘z faylini yuritadi.</p>
           </article>
           <article class="problem-card reveal">
             <span class="p-icon">📋</span>
-            <h3>Qog‘oz davomat</h3>
-            <p>Jurnal sinfda qoladi. Statistika yig‘ish uchun soatlab qayta yozish kerak.</p>
+            <h3 data-i18n="problem.c3t">Qog‘oz davomat</h3>
+            <p data-i18n="problem.c3p">Jurnal sinfda qoladi. Statistika yig‘ish uchun soatlab qayta yozish kerak.</p>
           </article>
           <article class="problem-card reveal">
             <span class="p-icon">📞</span>
-            <h3>Ota-onaning qo‘ng‘iroqlari</h3>
-            <p>“Farzandim bugun keldimi?” degan savolga javob berish uchun admin har safar qidiradi.</p>
+            <h3 data-i18n="problem.c4t">Ota-onaning qo‘ng‘iroqlari</h3>
+            <p data-i18n="problem.c4p">“Farzandim bugun keldimi?” degan savolga javob berish uchun admin har safar qidiradi.</p>
           </article>
         </div>
       </div>
@@ -151,8 +165,8 @@
     <section class="section features" id="features">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Markaz uchun kerak bo‘lgan hamma narsa</h2>
-          <p>Olti modul bir-biri bilan bog‘langan: davomat belgilanishi bilan ota-ona xabar oladi, homework baholanishi bilan o‘quvchi XP oladi.</p>
+          <h2 data-i18n="features.h2">Markaz uchun kerak bo‘lgan hamma narsa</h2>
+          <p data-i18n="features.lead">Olti modul bir-biri bilan bog‘langan: davomat belgilanishi bilan ota-ona xabar oladi, homework baholanishi bilan o‘quvchi XP oladi.</p>
         </div>
 
         <div class="features-grid">
@@ -160,48 +174,48 @@
             <div class="f-icon">
               <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
             </div>
-            <h3>Avtomatik davomat</h3>
-            <p>Geofence orqali o‘quvchi markaz hududiga kirganda davomat o‘zi belgilanadi. O‘qituvchi faqat tekshiradi.</p>
+            <h3 data-i18n="features.f1t">Avtomatik davomat</h3>
+            <p data-i18n="features.f1p">Geofence orqali o‘quvchi markaz hududiga kirganda davomat o‘zi belgilanadi. O‘qituvchi faqat tekshiradi.</p>
           </article>
 
           <article class="feature reveal">
             <div class="f-icon">
               <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
             </div>
-            <h3>Ota-ona monitoringi</h3>
-            <p>Farzand darsga keldi yoki kelmadi, homework berildi, baho qo‘yildi — ota-ona darhol bildirishnoma oladi.</p>
+            <h3 data-i18n="features.f2t">Ota-ona monitoringi</h3>
+            <p data-i18n="features.f2p">Farzand darsga keldi yoki kelmadi, homework berildi, baho qo‘yildi — ota-ona darhol bildirishnoma oladi.</p>
           </article>
 
           <article class="feature reveal">
             <div class="f-icon">
               <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg>
             </div>
-            <h3>Homework tizimi</h3>
-            <p>Topshiriq berish, muddat qo‘yish, ilovadan topshirish va baholash — bitta oqimda.</p>
+            <h3 data-i18n="features.f3t">Homework tizimi</h3>
+            <p data-i18n="features.f3p">Topshiriq berish, muddat qo‘yish, ilovadan topshirish va baholash — bitta oqimda.</p>
           </article>
 
           <article class="feature reveal">
             <div class="f-icon">
               <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
             </div>
-            <h3>Arena va XP</h3>
-            <p>O‘quvchilar davomat va topshiriqlar uchun XP yig‘adi, guruh reytingida o‘z o‘rnini ko‘radi.</p>
+            <h3 data-i18n="features.f4t">Arena va XP</h3>
+            <p data-i18n="features.f4p">O‘quvchilar davomat va topshiriqlar uchun XP yig‘adi, guruh reytingida o‘z o‘rnini ko‘radi.</p>
           </article>
 
           <article class="feature reveal">
             <div class="f-icon">
               <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M8 13h3M8 17h6"/></svg>
             </div>
-            <h3>O‘qituvchi paneli</h3>
-            <p>Guruhlar, dars jadvali va davomat bitta ekranda. Dars tugashi bilan hamma narsa saqlangan.</p>
+            <h3 data-i18n="features.f5t">O‘qituvchi paneli</h3>
+            <p data-i18n="features.f5p">Guruhlar, dars jadvali va davomat bitta ekranda. Dars tugashi bilan hamma narsa saqlangan.</p>
           </article>
 
           <article class="feature reveal">
             <div class="f-icon">
               <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg>
             </div>
-            <h3>Analitika va hisobotlar</h3>
-            <p>Davomat, o‘zlashtirish, to‘lovlar va o‘qituvchilar samaradorligi bo‘yicha to‘liq statistika.</p>
+            <h3 data-i18n="features.f6t">Analitika va hisobotlar</h3>
+            <p data-i18n="features.f6p">Davomat, o‘zlashtirish, to‘lovlar va o‘qituvchilar samaradorligi bo‘yicha to‘liq statistika.</p>
           </article>
         </div>
       </div>
@@ -211,30 +225,30 @@
     <section class="section how" id="how">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Qanday ishlaydi</h2>
-          <p>Markazdan ota-onagacha — ma’lumot bir marta kiritiladi va hamma joyga o‘zi yetib boradi.</p>
+          <h2 data-i18n="how.h2">Qanday ishlaydi</h2>
+          <p data-i18n="how.lead">Markazdan ota-onagacha — ma’lumot bir marta kiritiladi va hamma joyga o‘zi yetib boradi.</p>
         </div>
 
         <ol class="timeline">
           <li class="step reveal">
             <span class="step-num">1</span>
-            <h3>Markaz o‘quvchi qo‘shadi</h3>
-            <p>Admin o‘quvchini guruhga biriktiradi, ota-onaning telefon raqamini kiritadi.</p>
+            <h3 data-i18n="how.s1t">Markaz o‘quvchi qo‘shadi</h3>
+            <p data-i18n="how.s1p">Admin o‘quvchini guruhga biriktiradi, ota-onaning telefon raqamini kiritadi.</p>
           </li>
           <li class="step reveal">
             <span class="step-num">2</span>
-            <h3>O‘qituvchi darsni o‘tkazadi</h3>
-            <p>Jadval bo‘yicha dars boshlanadi, o‘qituvchi panelda guruhni ochadi.</p>
+            <h3 data-i18n="how.s2t">O‘qituvchi darsni o‘tkazadi</h3>
+            <p data-i18n="how.s2p">Jadval bo‘yicha dars boshlanadi, o‘qituvchi panelda guruhni ochadi.</p>
           </li>
           <li class="step reveal">
             <span class="step-num">3</span>
-            <h3>Davomat va homework qayd etiladi</h3>
-            <p>Geofence davomatni belgilaydi, o‘qituvchi topshiriq va baholarni qo‘shadi.</p>
+            <h3 data-i18n="how.s3t">Davomat va homework qayd etiladi</h3>
+            <p data-i18n="how.s3p">Geofence davomatni belgilaydi, o‘qituvchi topshiriq va baholarni qo‘shadi.</p>
           </li>
           <li class="step reveal">
             <span class="step-num">4</span>
-            <h3>Ota-ona real vaqtda ko‘radi</h3>
-            <p>Ilovaga bildirishnoma keladi: keldi, topshiriq oldi, baho oldi.</p>
+            <h3 data-i18n="how.s4t">Ota-ona real vaqtda ko‘radi</h3>
+            <p data-i18n="how.s4p">Ilovaga bildirishnoma keladi: keldi, topshiriq oldi, baho oldi.</p>
           </li>
         </ol>
       </div>
@@ -244,26 +258,26 @@
     <section class="section roles" id="roles">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Har bir rol uchun o‘z ekrani</h2>
-          <p>Bitta ma’lumotlar bazasi, uch xil ko‘rinish.</p>
+          <h2 data-i18n="roles.h2">Har bir rol uchun o‘z ekrani</h2>
+          <p data-i18n="roles.lead">Bitta ma’lumotlar bazasi, uch xil ko‘rinish.</p>
         </div>
 
         <div class="tabs reveal">
-          <div class="tab-list" role="tablist" aria-label="Foydalanuvchi rollari">
-            <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-admin" id="tab-admin">Markaz va o‘qituvchi</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-student" id="tab-student" tabindex="-1">O‘quvchi</button>
-            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-parent" id="tab-parent" tabindex="-1">Ota-ona</button>
+          <div class="tab-list" role="tablist" data-i18n-aria-label="roles.ariaTabs" aria-label="Foydalanuvchi rollari">
+            <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-admin" id="tab-admin" data-i18n="roles.tab1">Markaz va o‘qituvchi</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-student" id="tab-student" tabindex="-1" data-i18n="roles.tab2">O‘quvchi</button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="panel-parent" id="tab-parent" tabindex="-1" data-i18n="roles.tab3">Ota-ona</button>
           </div>
 
           <div class="tab-panel is-active" role="tabpanel" id="panel-admin" aria-labelledby="tab-admin">
             <div class="panel-text">
-              <h3>Veb-panel: markazni to‘liq boshqarish</h3>
-              <p>Admin va o‘qituvchilar o‘quvchilar, guruhlar, jadval, davomat, homework va to‘lovlarni bitta joyda yuritadi.</p>
+              <h3 data-i18n="roles.a_h3">Veb-panel: markazni to‘liq boshqarish</h3>
+              <p data-i18n="roles.a_p">Admin va o‘qituvchilar o‘quvchilar, guruhlar, jadval, davomat, homework va to‘lovlarni bitta joyda yuritadi.</p>
               <ul class="checks">
-                <li>O‘quvchi va guruhlar ro‘yxati</li>
-                <li>Dars jadvali va xonalar</li>
-                <li>Davomat va homework nazorati</li>
-                <li>To‘lovlar va qarzdorlik</li>
+                <li data-i18n="roles.a_c1">O‘quvchi va guruhlar ro‘yxati</li>
+                <li data-i18n="roles.a_c2">Dars jadvali va xonalar</li>
+                <li data-i18n="roles.a_c3">Davomat va homework nazorati</li>
+                <li data-i18n="roles.a_c4">To‘lovlar va qarzdorlik</li>
               </ul>
             </div>
             <div class="panel-visual pv-admin" aria-hidden="true">
@@ -277,20 +291,20 @@
 
           <div class="tab-panel" role="tabpanel" id="panel-student" aria-labelledby="tab-student" hidden>
             <div class="panel-text">
-              <h3>Mobil ilova: o‘qishni o‘yinga aylantirish</h3>
-              <p>O‘quvchi o‘z jadvali, topshiriqlari va baholarini ko‘radi, Arena’da XP yig‘ib reytingda ko‘tariladi.</p>
+              <h3 data-i18n="roles.s_h3">Mobil ilova: o‘qishni o‘yinga aylantirish</h3>
+              <p data-i18n="roles.s_p">O‘quvchi o‘z jadvali, topshiriqlari va baholarini ko‘radi, Arena’da XP yig‘ib reytingda ko‘tariladi.</p>
               <ul class="checks">
-                <li>Bugungi darslar va muddatlar</li>
-                <li>Homework’ni ilovadan topshirish</li>
-                <li>Baholar va progress grafigi</li>
-                <li>Arena reytingi va XP</li>
+                <li data-i18n="roles.s_c1">Bugungi darslar va muddatlar</li>
+                <li data-i18n="roles.s_c2">Homework’ni ilovadan topshirish</li>
+                <li data-i18n="roles.s_c3">Baholar va progress grafigi</li>
+                <li data-i18n="roles.s_c4">Arena reytingi va XP</li>
               </ul>
             </div>
             <div class="panel-visual pv-student" aria-hidden="true">
               <div class="xp-ring"><span>1 240<small>XP</small></span></div>
               <div class="xp-list">
                 <div><b>1</b> Madina <em>1 480</em></div>
-                <div class="me"><b>2</b> Siz <em>1 240</em></div>
+                <div class="me"><b>2</b> <span data-i18n="roles.s_you">Siz</span> <em>1 240</em></div>
                 <div><b>3</b> Jasur <em>1 115</em></div>
               </div>
             </div>
@@ -298,13 +312,13 @@
 
           <div class="tab-panel" role="tabpanel" id="panel-parent" aria-labelledby="tab-parent" hidden>
             <div class="panel-text">
-              <h3>Mobil ilova: xotirjamlik</h3>
-              <p>Ota-ona markazga qo‘ng‘iroq qilmasdan farzandining davomati, topshiriqlari va natijalarini kuzatadi.</p>
+              <h3 data-i18n="roles.p_h3">Mobil ilova: xotirjamlik</h3>
+              <p data-i18n="roles.p_p">Ota-ona markazga qo‘ng‘iroq qilmasdan farzandining davomati, topshiriqlari va natijalarini kuzatadi.</p>
               <ul class="checks">
-                <li>Keldi va ketdi bildirishnomalari</li>
-                <li>Berilgan va topshirilgan homework</li>
-                <li>Baholar va oylik progress</li>
-                <li>To‘lov eslatmalari</li>
+                <li data-i18n="roles.p_c1">Keldi va ketdi bildirishnomalari</li>
+                <li data-i18n="roles.p_c2">Berilgan va topshirilgan homework</li>
+                <li data-i18n="roles.p_c3">Baholar va oylik progress</li>
+                <li data-i18n="roles.p_c4">To‘lov eslatmalari</li>
               </ul>
             </div>
             <div class="panel-visual pv-parent" aria-hidden="true">
@@ -314,7 +328,7 @@
                 <span class="a"></span><span class="a"></span><span class="a"></span><span class="a"></span>
                 <span class="l"></span><span class="a"></span><span class="a"></span><span class="a"></span>
               </div>
-              <p class="month-cap">Sentyabr davomati: 88%</p>
+              <p class="month-cap" data-i18n="roles.month">Sentyabr davomati: 88%</p>
             </div>
           </div>
         </div>
@@ -325,42 +339,43 @@
     <!-- Raqamlar hozircha placeholder — data-target qiymatlarini almashtiring -->
     <section class="stats" id="pricing">
       <div class="container stats-grid">
-        <div class="stat reveal"><strong data-target="500" data-suffix="+">0</strong><span>o‘quvchi</span></div>
-        <div class="stat reveal"><strong data-target="50" data-suffix="+">0</strong><span>o‘qituvchi</span></div>
-        <div class="stat reveal"><strong data-target="12" data-suffix="">0</strong><span>o‘quv markazi</span></div>
-        <div class="stat reveal"><strong data-target="98" data-suffix="%">0</strong><span>davomat avtomatik belgilanadi</span></div>
+        <div class="stat reveal"><strong data-target="500" data-suffix="+">0</strong><span data-i18n="stats.s1">o‘quvchi</span></div>
+        <div class="stat reveal"><strong data-target="50" data-suffix="+">0</strong><span data-i18n="stats.s2">o‘qituvchi</span></div>
+        <div class="stat reveal"><strong data-target="12" data-suffix="">0</strong><span data-i18n="stats.s3">o‘quv markazi</span></div>
+        <div class="stat reveal"><strong data-target="98" data-suffix="%">0</strong><span data-i18n="stats.s4">davomat avtomatik belgilanadi</span></div>
       </div>
-      <p class="container stats-note reveal">Narxlar markaz hajmiga qarab belgilanadi — demo davomida hisoblab beramiz.</p>
+      <p class="container stats-note reveal" data-i18n="stats.note">Narxlar markaz hajmiga qarab belgilanadi — demo davomida hisoblab beramiz.</p>
     </section>
 
     <!-- ============ CTA / FORMA ============ -->
     <section class="section cta" id="contact">
       <div class="container cta-box reveal">
         <div class="cta-copy">
-          <h2>Markazingizni raqamlashtiring</h2>
-          <p>Ma’lumotlaringizni qoldiring — 24 soat ichida bog‘lanib, platformani markazingiz misolida ko‘rsatamiz.</p>
+          <h2 data-i18n="cta.h2">Markazingizni raqamlashtiring</h2>
+          <p data-i18n="cta.lead">Ma’lumotlaringizni qoldiring — 24 soat ichida bog‘lanib, platformani markazingiz misolida ko‘rsatamiz.</p>
         </div>
 
         <form class="cta-form" id="leadForm" action="https://formsubmit.co/ismatismoilov709@gmail.com" method="POST" novalidate>
           <label>
-            <span>Ismingiz</span>
-            <input type="text" name="name" placeholder="Masalan, Dilshod" required />
+            <span data-i18n="cta.name">Ismingiz</span>
+            <input type="text" name="name" data-i18n-placeholder="cta.namePh" placeholder="Masalan, Dilshod" required />
           </label>
           <label>
-            <span>Telefon raqam</span>
+            <span data-i18n="cta.phone">Telefon raqam</span>
             <input type="tel" name="phone" placeholder="+998 90 123 45 67" required />
           </label>
           <label>
-            <span>Markaz nomi</span>
-            <input type="text" name="center" placeholder="Masalan, Bilim Plus" required />
+            <span data-i18n="cta.center">Markaz nomi</span>
+            <input type="text" name="center" data-i18n-placeholder="cta.centerPh" placeholder="Masalan, Bilim Plus" required />
           </label>
           <!-- FormSubmit sozlamalari (foydalanuvchiga ko‘rinmaydi) -->
           <input type="hidden" name="_subject" value="Acadium — yangi demo so‘rovi" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="lang" id="leadLang" value="uz" />
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-          <button type="submit" class="btn btn-light btn-lg">Demo so‘rash</button>
+          <button type="submit" class="btn btn-light btn-lg" data-i18n="cta.submit">Demo so‘rash</button>
           <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -378,13 +393,13 @@
           </span>
           Acadium
         </a>
-        <p class="footer-desc">O‘quv markazlari uchun CRM, davomat, homework va ota-ona monitoringi — bitta platformada.</p>
+        <p class="footer-desc" data-i18n="footer.desc">O‘quv markazlari uchun CRM, davomat, homework va ota-ona monitoringi — bitta platformada.</p>
       </div>
 
-      <nav class="footer-links" aria-label="Huquqiy havolalar">
-        <a href="#">Maxfiylik siyosati</a>
-        <a href="#">Foydalanish shartlari</a>
-        <a href="#contact">Aloqa</a>
+      <nav class="footer-links" data-i18n-aria-label="footer.ariaLinks" aria-label="Huquqiy havolalar">
+        <a href="#" data-i18n="footer.privacy">Maxfiylik siyosati</a>
+        <a href="#" data-i18n="footer.terms">Foydalanish shartlari</a>
+        <a href="#contact" data-i18n="footer.contact">Aloqa</a>
       </nav>
 
       <div class="socials">
@@ -400,10 +415,11 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span id="year">2026</span> Acadium. Barcha huquqlar himoyalangan.</p>
+      <p>© <span id="year">2026</span> Acadium. <span data-i18n="footer.rights">Barcha huquqlar himoyalangan.</span></p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>

@@ -7,6 +7,9 @@
   // Scroll-reveal CSS faqat JS ishlaganda yoqiladi (JS o'chiq bo'lsa kontent ko'rinib turadi)
   document.documentElement.classList.add("js");
 
+  // i18n.js yuklanmasa ham sahifa ishlashi uchun zaxira
+  const t = (key, vars) => (window.I18N ? window.I18N.t(key, vars) : key);
+
   const header = document.querySelector(".site-header");
   const burger = document.getElementById("burger");
   const nav = document.getElementById("mainNav");
@@ -20,11 +23,13 @@
   function setMenu(open) {
     nav.classList.toggle("is-open", open);
     burger.setAttribute("aria-expanded", String(open));
-    burger.setAttribute("aria-label", open ? "Menyuni yopish" : "Menyuni ochish");
+    burger.setAttribute("aria-label", t(open ? "nav.ariaMenuClose" : "nav.ariaMenuOpen"));
   }
   burger.addEventListener("click", () => setMenu(!nav.classList.contains("is-open")));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
   window.addEventListener("resize", () => { if (window.innerWidth > 860) setMenu(false); });
+  // Til almashganda burger yorlig'i to'g'ri holatda qolsin
+  document.addEventListener("languagechange", () => setMenu(nav.classList.contains("is-open")));
 
   /* ---------- 3. Smooth scroll (anchor linklar) ---------- */
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -94,12 +99,12 @@
   /* ---------- 6. Rollar bo'limi — tablar ---------- */
   const tabs = Array.from(document.querySelectorAll(".tab"));
   function activateTab(tab) {
-    tabs.forEach((t) => {
-      const active = t === tab;
-      t.classList.toggle("is-active", active);
-      t.setAttribute("aria-selected", String(active));
-      t.tabIndex = active ? 0 : -1;
-      const panel = document.getElementById(t.getAttribute("aria-controls"));
+    tabs.forEach((btn) => {
+      const active = btn === tab;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", String(active));
+      btn.tabIndex = active ? 0 : -1;
+      const panel = document.getElementById(btn.getAttribute("aria-controls"));
       panel.hidden = !active;
       panel.classList.toggle("is-active", active);
     });
@@ -120,6 +125,16 @@
   const msg = document.getElementById("formMsg");
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  // Oxirgi xabarni eslab qolamiz — til almashsa, o'sha tilda qayta chizamiz
+  let lastMsg = null;                       // { key, vars }
+  function showMsg(key, vars) {
+    lastMsg = key ? { key, vars } : null;
+    msg.textContent = key ? t(key, vars) : "";
+  }
+  document.addEventListener("languagechange", () => {
+    if (lastMsg) msg.textContent = t(lastMsg.key, lastMsg.vars);
+  });
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form).entries());
@@ -134,14 +149,14 @@
     });
 
     if (!valid) {
-      msg.textContent = "Barcha maydonlarni to\u2018ldiring: telefon raqam kamida 9 ta raqamdan iborat bo\u2018lsin.";
+      showMsg("cta.invalid");
       return;
     }
 
     const btnText = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = "Yuborilmoqda\u2026";
-    msg.textContent = "";
+    submitBtn.textContent = t("cta.sending");
+    showMsg(null);
 
     try {
       // FormSubmit AJAX endpoint — forma action\u2019idagi email manzilga yuboradi
@@ -153,13 +168,18 @@
       });
       const result = await res.json().catch(() => ({}));
 
-      if (!res.ok || String(result.success) !== "true") throw new Error(result.message || "Yuborishda xatolik");
+      if (!res.ok || String(result.success) !== "true") throw new Error(result.message || "Form submit failed");
 
-      msg.textContent = `Rahmat, ${data.name}! So\u2018rovingiz qabul qilindi \u2014 tez orada bog\u2018lanamiz.`;
+      showMsg("cta.success", { name: data.name });
       form.reset();
+      // reset yashirin maydonlarni ham tozalaydi — joriy tilga qayta to'ldiramiz
+      const subject = form.querySelector('input[name="_subject"]');
+      if (subject) subject.value = t("cta.subject");
+      const leadLang = document.getElementById("leadLang");
+      if (leadLang && window.I18N) leadLang.value = window.I18N.lang;
     } catch (err) {
       console.error("Acadium \u2014 forma yuborilmadi:", err);
-      msg.textContent = "Kechirasiz, so\u2018rov yuborilmadi. Iltimos, qayta urinib ko\u2018ring yoki Telegram orqali yozing.";
+      showMsg("cta.error");
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = btnText;
