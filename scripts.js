@@ -200,6 +200,31 @@
     qrBox.hidden = false;
   }
 
-  /* ---------- 9. Footer yili ---------- */
+  /* ---------- 9. iPhone'dan kirganlarga "faqat Android" eslatmasini ajratib ko'rsatish ---------- */
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);   // iPadOS
+  if (isIOS) document.documentElement.classList.add("is-ios");
+
+  /* ---------- 10. Mobil suzuvchi tugma: hero'dan keyin chiqadi, yuklab olish/forma bo'limida yashirinadi ---------- */
+  const dlFloat = document.getElementById("dlFloat");
+  if (dlFloat) {
+    const hideZones = ["download", "contact"].map((id) => document.getElementById(id)).filter(Boolean);
+    // Bo'lim ekranda ko'rinib turibdimi (qisman bo'lsa ham)
+    const visible = (el) => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    };
+    const update = () => {
+      const show = window.scrollY > 480 && !hideZones.some(visible);
+      dlFloat.classList.toggle("is-shown", show);
+      dlFloat.setAttribute("aria-hidden", String(!show));
+      dlFloat.tabIndex = show ? 0 : -1;
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
+  /* ---------- 11. Footer yili ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
 })();

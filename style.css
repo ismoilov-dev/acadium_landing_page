@@ -507,6 +507,33 @@ img, svg { max-width: 100%; display: block; }
 .dl-steps small { display: block; margin-top: 4px; font-size: .8rem; color: #95a1b8; line-height: 1.45; }
 
 .dl-note { margin-top: 20px; font-size: .85rem; color: #8592ab; }
+/* iPhone'dan kirganda eslatma ko'zga tashlansin */
+.is-ios .dl-note {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(251, 191, 36, .12);
+  border: 1px solid rgba(251, 191, 36, .3);
+  color: #fcd34d;
+  font-weight: 600;
+}
+
+/* Mobil: pastda suzib turuvchi "yuklab olish" tugmasi */
+.dl-float {
+  position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 40;
+  display: none;
+  align-items: center; justify-content: center; gap: 10px;
+  padding: 15px 20px;
+  border-radius: 14px;
+  background: var(--gradient);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 14px 30px -10px rgba(99, 102, 241, .75);
+  transform: translateY(140%);
+  transition: transform .3s cubic-bezier(.2, .7, .2, 1);
+}
+.dl-float svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.dl-float.is-shown { transform: none; }
 
 /* Telefon: o'rnatish ekrani */
 .dl-visual { display: flex; justify-content: center; align-items: flex-end; min-height: 420px; }
@@ -654,6 +681,7 @@ img, svg { max-width: 100%; display: block; }
   .nav-cta-mobile { display: flex; margin-top: 12px; width: 100%; }
 
   .tab-panel { grid-template-columns: 1fr; padding: 28px; gap: 28px; }
+  .dl-float { display: flex; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .socials { grid-column: 1 / -1; }
 }
@@ -678,11 +706,34 @@ img, svg { max-width: 100%; display: block; }
   .pv-student { flex-direction: column; }
   .xp-list { width: 100%; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
+  .container { padding: 0 16px; }
+
+  /* Hero telefoni: uchinchi bildirishnoma ekranga sig'maydi */
+  .notif.n3 { display: none; }
+  .phone { height: 350px; }
+
+  /* Qadamlar: raqam chapda, matn o'ngda — ixchamroq */
+  .timeline { row-gap: 28px; }
+  .step { display: grid; grid-template-columns: 48px 1fr; column-gap: 16px; padding-right: 0; }
+  .step-num { grid-row: span 2; }
+  .step h3 { margin-top: 2px; }
+  .step p { margin-top: 4px; }
+
+  /* To'q/gradient kartochkalar ekran chetiga yopishmasin */
+  .cta-box, .dl-box { width: auto; margin-left: 16px; margin-right: 16px; }
   .cta-box { padding: 32px 20px; border-radius: 22px; }
-  .dl-box { padding: 36px 20px; border-radius: 22px; gap: 36px; }
-  .btn-download { width: 100%; }
-  .dl-steps { grid-template-columns: 1fr; }
-  .dl-phone { width: 190px; height: 370px; }
+  .dl-box { padding: 32px 20px; border-radius: 22px; gap: 28px; }
+  .dl-copy h2 { font-size: 1.75rem; }
+  .dl-lead { font-size: 1rem; }
+  .dl-actions { margin-top: 24px; gap: 16px; }
+  .btn-download { width: 100%; padding: 14px 20px 14px 14px; }
+  .dl-meta { width: 100%; justify-content: space-between; }
+  .dl-steps { margin-top: 24px; grid-template-columns: 1fr; gap: 10px; }
+  .dl-steps li { padding: 14px; }
+  .dl-phone { width: 170px; height: 320px; border-radius: 32px; }
+  .dl-screen { border-radius: 25px; }
+  .dl-appicon { width: 64px; height: 64px; border-radius: 18px; }
+  .dl-appicon svg { width: 34px; height: 34px; }
   .cta-form { padding: 20px; }
   .footer-grid { grid-template-columns: 1fr; }
 }
