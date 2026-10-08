@@ -422,6 +422,144 @@ img, svg { max-width: 100%; display: block; }
 .stat span { color: #a8b3c7; font-weight: 500; }
 .stats-note { margin-top: 40px; color: #a8b3c7; font-size: .95rem; }
 
+/* Download — APK yuklab olish */
+.hero-dl svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.download { padding-bottom: 0; }
+.dl-box {
+  position: relative;
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center;
+  padding: 64px;
+  border-radius: 28px;
+  background:
+    radial-gradient(55% 70% at 100% 0%, rgba(139, 92, 246, .35), transparent 70%),
+    radial-gradient(45% 60% at 0% 100%, rgba(74, 158, 237, .28), transparent 70%),
+    var(--ink);
+  color: #fff;
+  overflow: hidden;
+}
+.dl-box::before {   /* nozik nuqtali fon */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(120deg, transparent 30%, #000 100%);
+  -webkit-mask-image: linear-gradient(120deg, transparent 30%, #000 100%);
+}
+.dl-copy, .dl-visual { position: relative; }
+
+.dl-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px 6px 10px;
+  border-radius: 999px;
+  background: rgba(61, 220, 132, .14);
+  color: #7ee2a8;
+  font-size: .85rem; font-weight: 700;
+}
+.dl-tag svg { width: 16px; height: 16px; fill: currentColor; }
+
+.dl-copy h2 { margin-top: 18px; font-size: clamp(1.9rem, 3.4vw, 2.8rem); font-weight: 800; }
+.dl-lead { margin-top: 16px; max-width: 32em; font-size: 1.1rem; color: #b8c2d6; }
+
+.dl-actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
+
+.btn-download {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 12px 24px 12px 12px;
+  border-radius: 16px;
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 14px 34px -12px rgba(124, 108, 246, .8), inset 0 1px 0 rgba(255, 255, 255, .25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-download:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -12px rgba(124, 108, 246, .9), inset 0 1px 0 rgba(255, 255, 255, .25); }
+.btn-download:focus-visible { outline-color: #fff; }
+.bd-ic {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: rgba(255, 255, 255, .18);
+}
+.bd-ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.btn-download:hover .bd-ic svg { animation: nudge .8s ease infinite; }
+@keyframes nudge { 50% { transform: translateY(3px); } }
+.bd-text { display: grid; line-height: 1.2; text-align: left; }
+.bd-text small { font-size: .78rem; font-weight: 600; opacity: .85; }
+.bd-text b { font-size: 1.1rem; font-weight: 800; }
+
+.dl-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.dl-meta li { display: grid; font-size: .78rem; color: #8592ab; font-weight: 600; line-height: 1.3; }
+.dl-meta b { font-size: .95rem; color: #fff; font-weight: 700; }
+
+.dl-steps { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.dl-steps li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .09);
+}
+.ds-num {
+  flex: none; width: 26px; height: 26px; border-radius: 8px;
+  display: grid; place-items: center;
+  background: var(--gradient);
+  font-size: .8rem; font-weight: 800;
+}
+.dl-steps b { display: block; font-size: .92rem; line-height: 1.3; }
+.dl-steps small { display: block; margin-top: 4px; font-size: .8rem; color: #95a1b8; line-height: 1.45; }
+
+.dl-note { margin-top: 20px; font-size: .85rem; color: #8592ab; }
+
+/* Telefon: o'rnatish ekrani */
+.dl-visual { display: flex; justify-content: center; align-items: flex-end; min-height: 420px; }
+.dl-phone {
+  position: relative;
+  width: 220px; height: 430px;
+  padding: 10px;
+  border-radius: 38px;
+  background: #1e293b;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .08), 0 40px 80px -30px rgba(0, 0, 0, .7);
+  transform: rotate(-4deg);
+}
+.dl-phone .phone-notch { background: #1e293b; }
+.dl-screen {
+  height: 100%;
+  padding: 0 22px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, #f6f7fb, #eef3fe);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--ink);
+  text-align: center;
+}
+.dl-appicon {
+  width: 76px; height: 76px; border-radius: 22px;
+  display: grid; place-items: center;
+  color: #fff; background: var(--gradient);
+  box-shadow: 0 14px 28px -12px rgba(99, 102, 241, .8);
+}
+.dl-appicon svg { width: 40px; height: 40px; }
+.dl-appname { margin-top: 16px; font-size: 1.2rem; font-weight: 800; }
+.dl-appsub { font-size: .78rem; color: var(--ink-mute); font-weight: 600; }
+.dl-progress { margin-top: 28px; width: 100%; height: 6px; border-radius: 99px; background: #dfe3ec; overflow: hidden; }
+.dl-progress span { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--gradient); }
+.dl-status { margin-top: 10px; font-size: .74rem; color: var(--ink-soft); font-weight: 600; }
+/* Bo'lim ko'ringanda progress to'ladi */
+.dl-box.is-visible .dl-progress span { animation: fillBar 2.4s .4s cubic-bezier(.4, 0, .2, 1) forwards; }
+@keyframes fillBar { to { width: 100%; } }
+
+.dl-qr {
+  position: absolute; left: 0; bottom: 24px;
+  width: 150px;
+  padding: 12px 12px 10px;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, .6);
+  transform: rotate(3deg);
+}
+.dl-qr[hidden] { display: none; }
+.dl-qr-code svg, .dl-qr-code img { width: 100%; height: auto; }
+.dl-qr small { display: block; margin-top: 6px; font-size: .68rem; font-weight: 700; line-height: 1.3; color: var(--ink-soft); }
+
 /* CTA */
 .cta-box {
   display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
@@ -491,6 +629,9 @@ img, svg { max-width: 100%; display: block; }
   .step:not(:last-child) .step-num::after { display: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .cta-box { grid-template-columns: 1fr; padding: 44px; }
+  .dl-box { grid-template-columns: 1fr; padding: 44px; }
+  .dl-visual { min-height: 0; }
+  .dl-qr { display: none; }   /* mobilda QR kerak emas — tugmani bosish kifoya */
 }
 
 @media (max-width: 860px) {
@@ -538,6 +679,10 @@ img, svg { max-width: 100%; display: block; }
   .xp-list { width: 100%; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 16px; }
   .cta-box { padding: 32px 20px; border-radius: 22px; }
+  .dl-box { padding: 36px 20px; border-radius: 22px; gap: 36px; }
+  .btn-download { width: 100%; }
+  .dl-steps { grid-template-columns: 1fr; }
+  .dl-phone { width: 190px; height: 370px; }
   .cta-form { padding: 20px; }
   .footer-grid { grid-template-columns: 1fr; }
 }

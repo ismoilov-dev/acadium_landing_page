@@ -188,6 +188,18 @@
 
   form.addEventListener("input", (e) => e.target.classList.remove("is-invalid"));
 
-  /* ---------- 8. Footer yili ---------- */
+  /* ---------- 8. APK uchun QR-kod (kompyuterdan kirganlar telefonda skanerlaydi) ---------- */
+  const apkLink = document.getElementById("apkLink");
+  const qrBox = document.getElementById("dlQr");
+  // Faqat sayt hostingda ochilganda (file:// da QR ma'nosiz) va kutubxona yuklangan bo'lsa
+  if (apkLink && qrBox && /^https?:$/.test(location.protocol) && typeof window.qrcode === "function") {
+    const qr = window.qrcode(0, "M");
+    qr.addData(apkLink.href);                  // to'liq manzil: https://sayt/downloads/acadium.apk
+    qr.make();
+    document.getElementById("dlQrCode").innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+    qrBox.hidden = false;
+  }
+
+  /* ---------- 9. Footer yili ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
