@@ -194,7 +194,7 @@
   // Faqat sayt hostingda ochilganda (file:// da QR ma'nosiz) va kutubxona yuklangan bo'lsa
   if (apkLink && qrBox && /^https?:$/.test(location.protocol) && typeof window.qrcode === "function") {
     const qr = window.qrcode(0, "M");
-    qr.addData(apkLink.href);                  // to'liq manzil: https://sayt/downloads/acadium.apk
+    qr.addData(apkLink.href);                  // to'liq manzil: https://sayt/downloads/Acadium-1.0.0.apk
     qr.make();
     document.getElementById("dlQrCode").innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
     qrBox.hidden = false;
